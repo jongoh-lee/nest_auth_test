@@ -1,13 +1,14 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
+import { CreateUserDto } from './user.dto';
 
 @Controller('user')
 export class UserController {
 	constructor(private userService : UserService){}
 
 	@Post('/create')
-	createUser(@Body() user: User){ //Body 타당성은 파이프에서 검사
+	createUser(@Body() user: CreateUserDto){ //Body 타당성은 파이프에서 검사
 		return this.userService.createUser(user);
 	}
 
@@ -19,7 +20,7 @@ export class UserController {
 	}
 
 	@Put('/update/:email')
-	updateUser(@Param('email') email:string, @Body() user: User){
+	updateUser(@Param('email') email:string, @Body() user: CreateUserDto){
 		console.log(user);
 		return this.userService.updateUser(email, user);
 	}
