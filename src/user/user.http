@@ -1,5 +1,24 @@
 
+###
+POST http://localhost:3000/auth/login3
+content-type: application/json
 
+{
+  "password": "1234",
+  "email": "aa@naver.com"
+}
+
+###
+POST http://localhost:3000/auth/login3
+content-type: application/json
+
+{
+  "password": "12345",
+  "email": "leee@naver.com"
+}
+
+###
+GET http://localhost:3000/auth/test-guard2
 ###가드 테스트
 GET http://localhost:3000/auth/test-guard
 
@@ -46,5 +65,5 @@ content-type: application/json
 {
   "username": "lee",
   "password": "1234",
-  "email": "leeeee@naver.com"
+  "email": "aa@naver.com"
 }
