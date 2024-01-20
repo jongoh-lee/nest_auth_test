@@ -59,7 +59,7 @@ export class AuthenticatedGuard implements CanActivate {
 export class GoogleAuthGuard extends AuthGuard('google') {
   async canActivate(context: any): Promise<boolean> {
     const result = (await super.canActivate(context)) as boolean;
-    const request = context.switchToHttp().getRequest();
+    const request = context.switchToHttp().getRequest(); //request = user data, strategy가 리턴한
     await super.logIn(request); // 세션에 유저 정보 저장
     return result;
   }
